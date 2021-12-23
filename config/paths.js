@@ -4,6 +4,10 @@ module.exports = {
   // Source files
   src: path.resolve(__dirname, '../src'),
 
+  //Nunjunks files
+  pages: path.resolve(__dirname, '../src/nunjucks/'),
+  njk: path.resolve(__dirname, '../src/nunjucks/*.njk'),
+
   // Production build files
   build: path.resolve(__dirname, '../dist'),
 

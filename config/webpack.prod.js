@@ -1,6 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const PurgeCSSPlugin = require('purgecss-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { merge } = require('webpack-merge')
+
+const Glob = require('glob')
 
 const paths = require('./paths')
 const common = require('./webpack.common')
@@ -11,7 +15,8 @@ module.exports = merge(common, {
   output: {
     path: paths.build,
     publicPath: '/',
-    filename: 'js/[name].[contenthash].bundle.js',
+    // filename: 'js/[name].[contenthash].bundle.js',
+    filename: 'js/[name].js',
   },
   module: {
     rules: [
@@ -22,7 +27,7 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
+              importLoaders: 1,
               sourceMap: false,
               modules: false,
             },
@@ -34,17 +39,52 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     // Extracts CSS into separate files
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].[contenthash].css',
+      // filename: 'styles/[name].[contenthash].css',
+      filename: 'styles/[name].css',
       chunkFilename: '[id].css',
+    }),
+    new PurgeCSSPlugin({
+      paths: Glob.sync(`${paths.src}/**/*`, { nodir: true }),
+      safelist: {
+        standard: [
+          'collapsing',
+          'modal-backdrop',
+          ':before',
+          ':after',
+          'promo-data',
+          'visually-hidden',
+          'tingle-adult',
+        ],
+        deep: [/gl-star-rating/, /icon-/, /toast/, /is-active/],
+        // deep: [/\.(active|open|show|collapsing|modal-backdrop|modal-open|fade|gl-star-rating)/], lazyloaded
+      },
     }),
   ],
   optimization: {
     minimize: true,
-    minimizer: [new CssMinimizerPlugin(), '...'],
-    runtimeChunk: {
-      name: 'runtime',
+    // minimizer: [new CssMinimizerPlugin(), '...'],
+    minimizer: [
+      new CssMinimizerPlugin({
+        parallel: true,
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },
+      }),
+    ],
+    // runtimeChunk: {
+    //   name: 'runtime',
+    // },
+    splitChunks: {
+      chunks: 'all',
+      name: 'vendors',
     },
   },
   performance: {

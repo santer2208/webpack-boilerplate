@@ -1,0 +1,32 @@
+{# {% if projectName == 'ua1' %}
+  {% from "data/ua1/_online-casinos.njk" import onlineCasinos %}
+  {% from "data/ua1/_casino-cards.njk" import casinoCards %}
+{% else %}
+  {% from "data/lotoplay/_online-casinos.njk" import onlineCasinos %}
+  {% from "data/lotoplay/_casino-cards.njk" import casinoCards %}
+{% endif %}
+{% from "data/_complaint-cards.njk" import complaintCards %}
+{% from "data/_best-casinos.njk" import bestCasinos %}
+{% from "data/_articles-news.njk" import articleNews %}
+{% from "data/_slots-items.njk" import slotsItems %} #}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% include "includes/_head.njk" %}
+  </head>
+  <body class="{{bodyClass}}">
+    {# {% include "includes/_sprite-svg.njk" %} #}
+    <div class="wrapper-full">
+      <div class="main-content">
+        {# {% include "includes/_disclaimer-header.njk" %} #}
+        {# {% include "includes/_header.njk" %} #}
+        {% block content %}{% endblock %}
+      </div>
+      {# {% include "includes/_footer.njk" %} #}
+    </div>
+    {# {% include "includes/_modal-code.njk" %}
+    {% include "includes/_modal-subscribe.njk" %}
+    {% include "includes/_modal-adult.njk" %} #}
+    <div class="page-overlay" data-type="page-overlay"></div>
+  </body>
+</html>

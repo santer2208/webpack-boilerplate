@@ -1,7 +1,21 @@
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/Inter.ttf');
+// @font-face {
+//   font-family: 'Inter';
+//   src: url('../fonts/Inter.ttf');
+// }
+
+@import '~modern-normalize'; //Optimized normalize.css  https://github.com/sindresorhus/modern-normalize
+
+// @import 'variables';
+// @import 'scaffolding';
+
+body {
+  background-color: #c4c4c4;
 }
 
-@import 'variables';
-@import 'scaffolding';
+h1 {
+  color: #444;
+}
+
+p {
+  color: #444;
+}

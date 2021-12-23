@@ -1,0 +1,141 @@
+{# Синтаксис комментария #}
+{% set title = "Список всех страниц верстки" %}
+{% set page = "index" %}
+{% set bodyClass = "page-main" %}
+{% extends "templates/base.njk" %}
+
+{% block content %}
+  <main class="main homepage">
+    <div class="container">
+      <div class="row">
+        <div class="col-24">
+          <h1>Список всех страниц верстки</h1>
+          <p>Далеко-далеко за словесными горами.</p>
+          {# {% if projectName == 'ua1' %}
+            <div>ЭТО UA1 --- {{projectName}}</div>
+          {% else %}
+            <div>ЭТО LOTOPLAY --- {{projectName}}</div>
+          {% endif %} #}
+          {# <ul class="list-unstyled">
+            <li>
+              <a href="/mainpage.html">Главная страница UA1</a>
+            </li>
+            <li>
+              <a href="/how-we-rate.html">how we rate</a>
+            </li>
+            <li>
+              <a href="/about.html">about page</a>
+            </li>
+            <li>
+              <a href="/mainpage-lotoplay.html">Чёрная Главная страница lotoplay</a>
+            </li>
+            <li>
+              <a href="/new-mainpage.html">НОВАЯ Главная страница</a>
+            </li>
+            <li>
+              <a href="/authors.html">Все Авторы</a>
+            </li>
+            <li>
+              <a href="/authors-ua1.html">Все Авторы - ua1</a>
+            </li>
+            <li>
+              <a href="/author.html">Страница Автор</a>
+            </li>
+            <li>
+              <a href="/author-ua1.html">Страница Автор - ua1</a>
+            </li>
+            <li>
+              <a href="/blog.html">Страница Блог</a>
+            </li>
+            <li>
+              <a href="/blog-article.html">Страница Статья Блога</a>
+            </li>
+            <li>
+              <a href="/blog-lotoplay.html">Страница Блог Lotoplay</a>
+            </li>
+            <li>
+              <a href="/blog-article-lotoplay.html">Страница Статья Блога Lotoplay</a>
+            </li>
+            <li>
+              <a href="/casino-mainpage.html">Страница Казино Главная</a>
+            </li>
+            <li>
+              <a href="/casino-category.html">Страница Категория Казино</a>
+            </li>
+            <li>
+              <a href="/casino-game.html">Страница Казино Игра</a>
+            </li>
+            <li>
+              <a href="/all-bonuses.html">Все Бонусы</a>
+            </li>
+            <li>
+              <a href="/all-bonuses-black.html">Все Бонусы Black</a>
+            </li>
+            <li>
+              <a href="/search.html">Результаты поиска</a>
+            </li>
+            <li>
+              <a href="/search-black.html">Результаты поиска Black</a>
+            </li>
+            <li>
+              <a href="/vulkan777.html">Vulkan 777</a>
+            </li>
+            <li>
+              <a href="/vulkan777-black.html">Vulkan 777 Black</a>
+            </li>
+            <li>
+              <a href="/contacts.html">Контакты</a>
+            </li>
+            <li>
+              <a href="/contacts-black.html">Контакты Black</a>
+            </li>
+            <li>
+              <a href="/404.html">404</a>
+            </li>
+            <li>
+              <a href="/404-black.html">404 Black</a>
+            </li>
+            <li>
+              <a href="/main-complaint-add.html">Форма скарги</a>
+            </li>
+            <li>
+              <a href="/open-complaints.html">Відкриті скарги</a>
+            </li>
+            <li>
+              <a href="/open-complaints-inner.html">Відкриті скарги внутрішня сторінка</a>
+            </li>
+            <li>
+              <a href="/unresolved-complaints.html">Невирішені скарги</a>
+            </li>
+            <li>
+              <a href="/unresolved-complaints-inner.html">Невирішені скарги внутрішня сторінка</a>
+            </li>
+            <li>
+              <a href="/resolved-complaints.html">Вирішені скарги</a>
+            </li>
+            <li>
+              <a href="/resolved-complaints-inner.html">Вирішені скарги внутрішня сторінка</a>
+            </li>
+            <li>
+              <a href="/rejected-complaints.html">Відхилені скарги</a>
+            </li>
+            <li>
+              <a href="/rejected-complaints-inner.html">Відхилені скарги внутрішня сторінка</a>
+            </li>
+            <li>
+              <a href="/preload.html">Страница перенаправления</a>
+            </li>
+            <li>
+              <a href="/preload-black.html">Страница перенаправления Black</a>
+            </li>
+          </ul> #}
+        </div>
+        <div class="col-24">
+          <div id="rc-imageselect">
+            <div class="g-recaptcha">1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
