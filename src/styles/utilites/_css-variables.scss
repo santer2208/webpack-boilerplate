@@ -1,0 +1,13 @@
+$colors: (
+  0: #000,
+  1: #fff,
+  2: #c4c4c4,
+  3: green,
+  4: purple,
+);
+
+:root {
+  @each $color, $value in $colors {
+    --c#{$color}: #{$value};
+  }
+}

@@ -14,19 +14,17 @@
   <head>
     {% include "includes/_head.njk" %}
   </head>
+  {# {% include "includes/_sprite-svg.njk" %} #}
   <body class="{{bodyClass}}">
-    {# {% include "includes/_sprite-svg.njk" %} #}
     <div class="wrapper-full">
-      <div class="main-content">
-        {# {% include "includes/_disclaimer-header.njk" %} #}
-        {# {% include "includes/_header.njk" %} #}
-        {% block content %}{% endblock %}
-      </div>
-      {# {% include "includes/_footer.njk" %} #}
+      <header>
+        header{# {% include "includes/_header.njk" %} #}</header>
+      {% block content %}{% endblock %}
+      <footer>
+        {# {% include "includes/_footer.njk" %} #}
+        <p>footer</p>
+      </footer>
     </div>
-    {# {% include "includes/_modal-code.njk" %}
-    {% include "includes/_modal-subscribe.njk" %}
-    {% include "includes/_modal-adult.njk" %} #}
     <div class="page-overlay" data-type="page-overlay"></div>
   </body>
 </html>

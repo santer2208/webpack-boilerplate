@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   // Source files
-  src: path.resolve(__dirname, '../src'),
+  src: path.resolve(__dirname, '../src/'),
 
   //Nunjunks files
   pages: path.resolve(__dirname, '../src/nunjucks/'),

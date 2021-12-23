@@ -4,18 +4,7 @@
 // }
 
 @import '~modern-normalize'; //Optimized normalize.css  https://github.com/sindresorhus/modern-normalize
-
+@import './utilites/css-variables'; //Import My CSS Variables
+@import './utilites/based'; //Based Styles
 // @import 'variables';
 // @import 'scaffolding';
-
-body {
-  background-color: #c4c4c4;
-}
-
-h1 {
-  color: #444;
-}
-
-p {
-  color: #444;
-}

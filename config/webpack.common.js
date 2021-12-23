@@ -39,6 +39,7 @@ module.exports = {
     path: paths.build,
     filename: '[name].js',
     publicPath: '/',
+    clean: true,
   },
 
   // Customize the webpack build process

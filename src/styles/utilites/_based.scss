@@ -1,0 +1,18 @@
+body {
+  color: var(--c0);
+  background-color: var(--c2);
+}
+
+.wrapper-full {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+h1 {
+  color: var(--c0);
+}
+
+p {
+  color: var(--c0);
+}
