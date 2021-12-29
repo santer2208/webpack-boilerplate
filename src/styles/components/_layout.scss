@@ -1,0 +1,32 @@
+:root {
+  --offset: 16px;
+}
+
+.row {
+  margin-top: 3rem;
+  // @include row-offsets();
+  @include row-flex();
+  // --offset: 16px;
+  // @include flex();
+  // margin-left: calc(var(--offset) / -2);
+  // margin-right: calc(var(--offset) / -2);
+  // @include md-block() {
+  //   background: #cc0000;
+  // }
+}
+.col-24 {
+  @include col();
+  @include size(24);
+}
+.col-12 {
+  @include col();
+  @include size(12);
+}
+.col-4 {
+  @include col();
+  @include size(4);
+}
+.col-8 {
+  @include col();
+  @include size(8);
+}

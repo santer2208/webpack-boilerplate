@@ -3,7 +3,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const PurgeCSSPlugin = require('purgecss-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { merge } = require('webpack-merge')
-
+const { isDev, projectName } = require('./helpers')
 const Glob = require('glob')
 
 const paths = require('./paths')
@@ -32,8 +32,15 @@ module.exports = merge(common, {
               modules: false,
             },
           },
-          'postcss-loader',
-          'sass-loader',
+          // 'postcss-loader',
+          // 'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+              additionalData: `$isDev: ${isDev}; $projectName: '${projectName}';`,
+            },
+          },
         ],
       },
     ],

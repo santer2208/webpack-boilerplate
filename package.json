@@ -1,14 +1,15 @@
 {
   "name": "webpack-boilerplate",
-  "version": "3.0.1",
+  "version": "1.0.1",
   "description": "Sensible webpack 5 boilerplate using Babel and PostCSS.",
   "main": "index.js",
-  "author": "Tania Rascia",
+  "author": "santer",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-	"grid": "node smartgrid.js",
+    "start": "cross-env NODE_ENV=development NODE_PROJECT=white webpack serve --config config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production NODE_PROJECT=white webpack --config config/webpack.prod.js",
+    "start-black": "cross-env NODE_ENV=development NODE_PROJECT=black webpack serve --config config/webpack.dev.js",
+    "build-black": "cross-env NODE_ENV=production NODE_PROJECT=black webpack --config config/webpack.prod.js",
     "lint": "eslint 'src/**/*.js' || true",
     "prettify": "prettier --write 'src/**/*.js'"
   },
@@ -49,10 +50,6 @@
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1",
     "webpack-merge": "^5.8.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:taniarascia/webpack-boilerplate"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"

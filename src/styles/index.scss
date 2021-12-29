@@ -2,25 +2,22 @@
 //   font-family: 'Inter';
 //   src: url('../fonts/Inter.ttf');
 // }
-
+@import 'simple-grid'; //Simple Grid
 @import '~modern-normalize'; //Optimized normalize.css  https://github.com/sindresorhus/modern-normalize
 
 @import './utilites/css-variables'; //Import My CSS Variables
 @import './utilites/mixins'; //Mixins
-@import './utilites/simple-grid'; //Simple Grid
+// @import './simple-grid'; //Simple Grid
+
 @import './utilites/based'; //Based Styles
 
 /* 
   Components
 */
+@import './components/layout'; //Layout
 @import './components/header'; //Header
 @import './components/cards'; //Cards
 @import './components/footer'; //Footer
 
 // @import 'variables';
 // @import 'scaffolding';
-header {
-  // @include col();
-  // @include size(24);
-  @include grid();
-}

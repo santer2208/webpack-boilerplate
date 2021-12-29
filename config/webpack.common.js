@@ -1,7 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { isDev } = require('./helpers')
+const { isDev, projectName } = require('./helpers')
+const webpack = require('webpack')
 
 const PostHTML = require('posthtml')
 const PostHTMLBeautify = require('posthtml-beautify')
@@ -44,6 +45,12 @@ module.exports = {
 
   // Customize the webpack build process
   plugins: [
+    // Project Variables
+    new webpack.DefinePlugin({
+      isDev: JSON.stringify(isDev),
+      projectName: JSON.stringify(projectName),
+    }),
+
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
 

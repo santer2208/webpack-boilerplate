@@ -1,7 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
-
+const { isDev, projectName } = require('./helpers')
 const paths = require('./paths')
 
 const common = require('./webpack.common')
@@ -45,7 +45,13 @@ module.exports = merge(common, {
             options: { sourceMap: true, importLoaders: 1, modules: false },
           },
           { loader: 'postcss-loader', options: { sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              additionalData: `$isDev: ${isDev}; $projectName: '${projectName}';`,
+            },
+          },
         ],
       },
     ],
