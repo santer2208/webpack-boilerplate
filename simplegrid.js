@@ -39,4 +39,4 @@ const settings = {
 };
 var root = __dirname;
 var simplegrid = require(root + '/src/simple-grid/index.js');
-simplegrid('src/styles/utilites', settings);
+simplegrid('src/styles/', settings);

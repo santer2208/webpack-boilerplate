@@ -3,7 +3,7 @@ html {
   height: 100%;
 }
 body {
-  color: var(--c0);
+  // color: var(--c0);
   font-size: 1rem;
   line-height: 1.65;
   font-weight: normal;
@@ -18,26 +18,25 @@ body {
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
   margin: 0;
-  background-color: var(--c7);
+  // background-color: var(--c7);
+  @if $projectName == 'black' {
+    color: var(--c1);
+    background-color: var(--c0);
+  }
+  @if $projectName == 'white' {
+    color: var(--c0);
+    background-color: var(--c1);
+  }
+  @if $isDev {
+    background: #000;
+  }
 }
 
 .wrapper-full {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  // @include flex();
-  // flex-direction: column;
   min-height: 100%;
 }
-
-// .main-content {
-//   @include flex();
-//   flex-direction: column;
-//   flex: 1;
-// }
-
-// .footer {
-//   flex: 0 0 auto;
-// }
 
 .container,
 .wrapper {
@@ -55,39 +54,15 @@ p {
   color: var(--c0);
 }
 
-.row {
-  @include row-flex();
-  margin-top: 3rem;
-}
-.col-24 {
-  @include col();
-  @include size(24);
-}
-.col-12 {
-  @include col();
-  @include size(12);
-}
-.col-4 {
-  @include col();
-  @include size(4);
-}
-.col-8 {
-  @include col();
-  @include size(8);
-}
-
 div[class^='col-'] {
-  // background-color: #ccdd00;
+  @if $projectName == 'black' {
+    color: var(--c0);
+  }
+  @if $projectName == 'white' {
+    color: var(--c1);
+  }
   border: 1px solid var(--c6);
   background-color: var(--c1);
   border-radius: 2px;
   text-align: center;
 }
-
-$columns: 24;
-
-// @for $i from 1 through $columns {
-//   .col-#{$i} {
-//     width: 100%;
-//   }
-// }

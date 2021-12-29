@@ -3,7 +3,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const PurgeCSSPlugin = require('purgecss-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { merge } = require('webpack-merge')
-
+const { isDev, projectName } = require('./helpers')
 const Glob = require('glob')
 
 const paths = require('./paths')
@@ -16,7 +16,7 @@ module.exports = merge(common, {
     path: paths.build,
     publicPath: '/',
     // filename: 'js/[name].[contenthash].bundle.js',
-    filename: 'js/[name].js',
+    filename: 'js/[name].bundle.js',
   },
   module: {
     rules: [
@@ -32,8 +32,14 @@ module.exports = merge(common, {
               modules: false,
             },
           },
-          'postcss-loader',
-          'sass-loader',
+          // 'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+              additionalData: `$isDev: ${isDev}; $projectName: '${projectName}';`,
+            },
+          },
         ],
       },
     ],
@@ -65,20 +71,20 @@ module.exports = merge(common, {
   ],
   optimization: {
     minimize: true,
-    // minimizer: [new CssMinimizerPlugin(), '...'],
-    minimizer: [
-      new CssMinimizerPlugin({
-        parallel: true,
-        minimizerOptions: {
-          preset: [
-            'default',
-            {
-              discardComments: { removeAll: true },
-            },
-          ],
-        },
-      }),
-    ],
+    minimizer: [new CssMinimizerPlugin({ parallel: true }), '...'],
+    // minimizer: [
+    //   new CssMinimizerPlugin({
+    //     parallel: true,
+    //     minimizerOptions: {
+    //       preset: [
+    //         'default',
+    //         {
+    //           discardComments: { removeAll: true },
+    //         },
+    //       ],
+    //     },
+    //   }),
+    // ],
     // runtimeChunk: {
     //   name: 'runtime',
     // },

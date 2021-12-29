@@ -8,6 +8,12 @@
   <div class="main-page">
     <div class="container">
       <h1>My Mainpage</h1>
+      {% if projectName == 'white' %}
+        <div>ЭТО ua1 --- {{projectName}}</div>
+      {% else %}
+        <div>ЭТО LOTOPLAY --- {{projectName}}</div>
+      {% endif %}
+
       <div class="cards">
         <div class="card-item">1</div>
         <div class="card-item">2</div>

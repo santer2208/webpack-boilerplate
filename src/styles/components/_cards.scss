@@ -14,6 +14,12 @@
   }
 }
 .card-item {
+  @if $projectName == 'black' {
+    color: var(--c0);
+  }
+  @if $projectName == 'white' {
+    color: var(--c1);
+  }
   border: 1px solid var(--c6);
   background-color: var(--c1);
   border-radius: 2px;

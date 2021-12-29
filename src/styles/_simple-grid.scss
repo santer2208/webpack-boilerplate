@@ -50,8 +50,8 @@ $fields: 16px;
 }
 
 @mixin col-offsets($type){
-    #{$type}-left: 8px;
-    #{$type}-right: 8px;
+    #{$type}-left: calc(var(--offset) / 2);
+    #{$type}-right: calc(var(--offset) / 2);
 }
 
 @mixin wrapper(){

@@ -1,7 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { isDev } = require('./helpers')
+const { isDev, projectName } = require('./helpers')
+const webpack = require('webpack')
 
 const PostHTML = require('posthtml')
 const PostHTMLBeautify = require('posthtml-beautify')
@@ -46,6 +47,12 @@ module.exports = {
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
+
+    // Project Variables
+    new webpack.DefinePlugin({
+      isDev: JSON.stringify(isDev),
+      projectName: JSON.stringify(projectName),
+    }),
 
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
@@ -118,7 +125,7 @@ module.exports = {
       },
 
       // JavaScript: Use Babel to transpile JavaScript files
-      { test: /\.js$/, use: ['babel-loader'] },
+      { test: /\.js$/, exclude: /[\\/]node_modules[\\/]/, use: ['babel-loader'] },
 
       // Images: Copy image files to build folder
       { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
