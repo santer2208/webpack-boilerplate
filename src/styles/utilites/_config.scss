@@ -1,0 +1,46 @@
+$breakpoints: (
+  0: 320px,
+  1: 480px,
+  2: 576px,
+  3: 768px,
+  4: 981px,
+  5: 1152px,
+);
+
+// @debug $breakpoints;
+
+:root {
+  --offset: 16px;
+  --fields: 16px;
+}
+
+@mixin wrapper-full() {
+  padding-left: var(--fields);
+  padding-right: var(--fields);
+}
+@mixin row-offsets() {
+  margin-left: calc(var(--offset) / -2);
+  margin-right: calc(var(--offset) / -2);
+}
+@mixin col-offsets($type) {
+  #{$type}-left: calc(var(--offset) / 2);
+  #{$type}-right: calc(var(--offset) / 2);
+}
+@mixin wrapper() {
+  max-width: 1152px;
+  margin: 0 auto;
+  @include wrapper-full();
+}
+@mixin row-flex() {
+  display: flex;
+  flex-wrap: wrap;
+  @include row-offsets();
+}
+@mixin col() {
+  word-wrap: break-word;
+  @include col-offsets(margin);
+}
+@mixin size($n) {
+  $val: 100% / $columns * $n;
+  width: #{calc(#{$val} - var(--offset))};
+}

@@ -17,13 +17,11 @@
   {# {% include "includes/_sprite-svg.njk" %} #}
   <body class="{{bodyClass}}">
     <div class="wrapper-full">
-      <header>
-        header{# {% include "includes/_header.njk" %} #}</header>
+      {# <div class="main-content"> #}
+      {% include "includes/_header.njk" %}
       {% block content %}{% endblock %}
-      <footer>
-        {# {% include "includes/_footer.njk" %} #}
-        <p>footer</p>
-      </footer>
+      {# </div> #}
+      {% include "includes/_footer.njk" %}
     </div>
     <div class="page-overlay" data-type="page-overlay"></div>
   </body>

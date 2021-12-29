@@ -1,0 +1,22 @@
+.cards {
+  --nc: 1;
+  --gap: 1rem;
+  @include grid();
+  grid-template-columns: repeat(var(--nc), 1fr);
+  grid-gap: var(--gap);
+  @include sm-block() {
+    --nc: 3;
+    --gap: 0.8rem;
+  }
+  @include md-block() {
+    --nc: 4;
+    --gap: 1.5rem;
+  }
+}
+.card-item {
+  border: 1px solid var(--c6);
+  background-color: var(--c1);
+  border-radius: 2px;
+  text-align: center;
+  padding: 1rem;
+}

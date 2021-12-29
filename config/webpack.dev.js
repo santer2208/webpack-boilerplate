@@ -29,6 +29,8 @@ module.exports = merge(common, {
     port: 8080,
   },
 
+  stats: 'errors-only',
+
   target: 'web',
 
   module: {
