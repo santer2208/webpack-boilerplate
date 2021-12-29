@@ -72,20 +72,20 @@ module.exports = merge(common, {
   ],
   optimization: {
     minimize: true,
-    // minimizer: [new CssMinimizerPlugin(), '...'],
-    minimizer: [
-      new CssMinimizerPlugin({
-        parallel: true,
-        minimizerOptions: {
-          preset: [
-            'default',
-            {
-              discardComments: { removeAll: true },
-            },
-          ],
-        },
-      }),
-    ],
+    minimizer: [new CssMinimizerPlugin({ parallel: true }), '...'],
+    // minimizer: [
+    //   new CssMinimizerPlugin({
+    //     parallel: true,
+    //     minimizerOptions: {
+    //       preset: [
+    //         'default',
+    //         {
+    //           discardComments: { removeAll: true },
+    //         },
+    //       ],
+    //     },
+    //   }),
+    // ],
     // runtimeChunk: {
     //   name: 'runtime',
     // },
